@@ -1,0 +1,39 @@
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+          <div class="col-4 mb-5" *ngFor="let wish of allWishlist">
+              <div class="card h-100">
+                  <!-- Product image-->
+                  <div style="width: 100%; height: 300px;" class="image-wrapper overflow-hidden p-2 d-flex justify-content-center">
+                    <!-- Product image-->
+                    <img style="width: 250px;" class="card-img-top object-fit-cover w-80 mx-auto"  [src]="wish.image" alt="..." />
+                    <!-- Product details-->
+                  </div>
+                  <!-- Product details-->
+                  <div class="card-body p-4 d-flex flex-column justify-content-around">
+                      <div class="text-center">
+                          <!-- Product name-->
+                          <h5 style="font-size: 18px;" class="fw-bolder">{{wish.title}}</h5>
+                          <!-- Product price-->
+                          ${{wish.price}}
+                      </div>
+                  </div>
+                  <!-- Product actions-->
+                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-around">
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto"><i class="fa-solid fa-cart-shopping"></i></a></div>
+                    <div class="text-center"><a (click)="deleteProductFromWishlist(wish.id)" class="btn btn-outline-dark mt-auto"><i class="fa-solid fa-trash"></i></a></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- empty cart -->
+<div *ngIf="emptyWish" class="container text-center py-5 d-flex flex-column justify-content-center">
+  <h1>Your Cart is empty</h1>
+  <div class="image-holder">
+    <img width="300px" src="https://storage.googleapis.com/msgsndr/RKjSVFlud4tomMYa0uQc/media/64faaf9763e571a5077394df.png" alt="">
+  </div>
+  <button class="btn btn-primary mx-auto">Shop More</button>
+</div>
